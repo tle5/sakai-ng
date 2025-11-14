@@ -3,3 +3,64 @@
 @use './layout/layout.scss';
 @use 'primeicons/primeicons.css';
 @use './demo/demo.scss';
+
+.layout-sidebar {
+    height: calc(100vh - 4rem);
+    top: 4rem;
+    left: 0rem;
+}
+
+.layout-main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+    padding: 5rem 1rem 0 1rem;
+    transition: margin-left var(--layout-section-transition-duration);
+}
+
+.layout-main {
+    flex: 1 1 auto;
+    padding-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 1960px) {
+    .layout-main,
+    .landing-wrapper {
+        width: 100%;        
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .layout-wrapper {
+        &.layout-overlay {
+            .layout-main-container {
+                padding-left: 1rem;
+            }
+        }
+
+        &.layout-static {
+            .layout-main-container {
+                margin-left: 20rem;
+            }
+
+            &.layout-static-inactive {
+                .layout-main-container {
+                    padding-left: 1rem;
+                }
+            }
+        }
+
+    }
+}
+
+@media (max-width: 991px) {
+    .layout-wrapper {
+        .layout-main-container {
+            margin-left: 0;
+            padding-left: 1rem;
+        }
+    }
+}
